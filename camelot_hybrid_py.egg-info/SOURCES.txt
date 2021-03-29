@@ -1,0 +1,6 @@
+camelot_hybrid_py.egg-info/PKG-INFO
+camelot_hybrid_py.egg-info/SOURCES.txt
+camelot_hybrid_py.egg-info/dependency_links.txt
+camelot_hybrid_py.egg-info/entry_points.txt
+camelot_hybrid_py.egg-info/requires.txt
+camelot_hybrid_py.egg-info/top_level.txt
