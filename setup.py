@@ -9,10 +9,6 @@ about = {}
 with open(os.path.join(here, 'camelot_hybrid', '__version__.py'), 'r') as f:
     exec(f.read(), about)
 
-with open('README.md', 'r') as f:
-    readme = f.read()
-
-
 requires = [
     'chardet>=3.0.4',
     'click>=6.7',
@@ -48,7 +44,6 @@ def setup_package():
     metadata = dict(name=about['__title__'],
                     version=about['__version__'],
                     description=about['__description__'],
-                    long_description=readme,
                     long_description_content_type="text/markdown",
                     url=about['__url__'],
                     author=about['__author__'],
