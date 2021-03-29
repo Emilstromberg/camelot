@@ -59,7 +59,7 @@ def setup_package():
                     },
                     entry_points={
                         'console_scripts': [
-                            'camelot = camelot.cli:cli',
+                            'camelot_hybrid = camelot_hybrid.cli:cli',
                         ],
                     },
                     classifiers=[
