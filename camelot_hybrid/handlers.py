@@ -17,7 +17,7 @@ from .utils import (
     download_url,
 )
 
-logger = logging.getLogger("camelot")
+logger = logging.getLogger("camelot_hybrid")
 
 PARSERS = {
     "lattice": Lattice,
@@ -83,7 +83,8 @@ class PDFHandler():
         if pages == "1":
             page_numbers.append({"start": 1, "end": 1})
         else:
-            infile = PdfFileReader(open(filepath, "rb"), strict=False)
+            instream = open(filepath, "rb")
+            infile = PdfFileReader(instream, strict=False)
             if infile.isEncrypted:
                 infile.decrypt(self.password)
             if pages == "all":
@@ -97,6 +98,7 @@ class PDFHandler():
                         page_numbers.append({"start": int(a), "end": int(b)})
                     else:
                         page_numbers.append({"start": int(r), "end": int(r)})
+            instream.close()
         P = []
         for p in page_numbers:
             P.extend(range(p["start"], p["end"] + 1))
@@ -151,7 +153,8 @@ class PDFHandler():
                 fpath_new = "".join(
                     [froot.replace("page", "p"), "_rotated", fext])
                 os.rename(fpath, fpath_new)
-                infile = PdfFileReader(open(fpath_new, "rb"), strict=False)
+                instream = open(fpath_new, "rb")
+                infile = PdfFileReader(instream, strict=False)
                 if infile.isEncrypted:
                     infile.decrypt(self.password)
                 outfile = PdfFileWriter()
@@ -163,6 +166,7 @@ class PDFHandler():
                 outfile.addPage(p)
                 with open(fpath, "wb") as f:
                     outfile.write(f)
+                instream.close()
                 layout, dimensions = get_page_layout(
                     fpath, **layout_kwargs)
         return layout, dimensions, fpath

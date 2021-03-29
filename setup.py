@@ -6,7 +6,7 @@ from setuptools import find_packages
 
 here = os.path.abspath(os.path.dirname(__file__))
 about = {}
-with open(os.path.join(here, 'camelot', '__version__.py'), 'r') as f:
+with open(os.path.join(here, 'camelot_hybrid', '__version__.py'), 'r') as f:
     exec(f.read(), about)
 
 with open('README.md', 'r') as f:
@@ -19,7 +19,7 @@ requires = [
     'numpy>=1.13.3',
     'openpyxl>=2.5.8',
     'pandas>=0.23.4',
-    'pdfminer.six>=20200402',
+    'pdfminer.six>=20200726',
     'PyPDF2>=1.26.0'
 ]
 
@@ -32,12 +32,12 @@ plot_requires = [
 ]
 
 dev_requires = [
-    'codecov>=2.1.3',
-    'pytest>=4.6',
+    'codecov>=2.0.15',
+    'pytest>=5.4.3',
     'pytest-cov>=2.10.0',
     'pytest-mpl>=0.11',
     'pytest-runner>=5.2',
-    'Sphinx>=3.0.3'
+    'Sphinx>=3.1.2'
 ]
 
 all_requires = cv_requires + plot_requires

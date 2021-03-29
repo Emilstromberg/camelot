@@ -3,31 +3,31 @@
 API Reference
 =============
 
-.. module:: camelot
+.. module:: camelot_hybrid
 
 Main Interface
 --------------
-.. autofunction:: camelot.read_pdf
+.. autofunction:: camelot_hybrid.read_pdf
 
 Lower-Level Classes
 -------------------
 
-.. autoclass:: camelot.handlers.PDFHandler
+.. autoclass:: camelot_hybrid.handlers.PDFHandler
    :inherited-members:
 
-.. autoclass:: camelot.parsers.Stream
+.. autoclass:: camelot_hybrid.parsers.Stream
    :inherited-members:
 
-.. autoclass:: camelot.parsers.Lattice
+.. autoclass:: camelot_hybrid.parsers.Lattice
    :inherited-members:
 
 Lower-Lower-Level Classes
 -------------------------
 
-.. autoclass:: camelot.core.TableList
+.. autoclass:: camelot_hybrid.core.TableList
    :inherited-members:
 
-.. autoclass:: camelot.core.Table
+.. autoclass:: camelot_hybrid.core.Table
    :inherited-members:
 
-.. autoclass:: camelot.core.Cell
+.. autoclass:: camelot_hybrid.core.Cell

@@ -14,7 +14,7 @@ else:
 from . import __version__, read_pdf, plot
 
 
-logger = logging.getLogger("camelot")
+logger = logging.getLogger("camelot_hybrid")
 logger.setLevel(logging.INFO)
 
 
@@ -29,7 +29,7 @@ class Config():
 pass_config = click.make_pass_decorator(Config)
 
 
-@click.group(name="camelot")
+@click.group(name="camelot_hybrid")
 @click.version_option(version=__version__)
 @click.option("-q", "--quiet", is_flag=False,
               help="Suppress logs and warnings.")

@@ -11,7 +11,7 @@ Using conda
 The easiest way to install Camelot is to install it with `conda`_, which is a package manager and environment management system for the `Anaconda`_ distribution.
 ::
 
-    $ conda install -c conda-forge camelot-py
+    $ Done through github branch
 
 .. note:: Camelot is available for Python 3.5, 3.6 and 3.7 on Linux, macOS and Windows. For Windows, you will need to install ghostscript which you can get from their `downloads page`_.
 
@@ -25,7 +25,7 @@ Using pip
 
 After :ref:`installing the dependencies <install_deps>`, which include `Tkinter`_ and `ghostscript`_, you can simply use pip to install Camelot::
 
-    $ pip install camelot-py[cv]
+    $ Done through github branch
 
 .. _Tkinter: https://wiki.python.org/moin/TkInter
 .. _ghostscript: https://www.ghostscript.com
@@ -43,5 +43,5 @@ After :ref:`installing the dependencies <install_deps>`, you can install from th
 2. Then simply using pip again.
 ::
 
-    $ cd camelot
+    $ cd camelot_hybrid
     $ pip install ".[cv]"

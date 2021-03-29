@@ -4,8 +4,8 @@ import os
 
 from click.testing import CliRunner
 
-from camelot.cli import cli
-from camelot.utils import TemporaryDirectory
+from camelot_hybrid.cli import cli
+from camelot_hybrid.utils import TemporaryDirectory
 
 
 testdir = os.path.dirname(os.path.abspath(__file__))
@@ -189,8 +189,8 @@ def test_cli_output_format():
 
 def test_cli_quiet():
     with TemporaryDirectory() as tempdir:
-        infile = os.path.join(testdir, "blank.pdf")
-        outfile = os.path.join(tempdir, "blank.csv")
+        infile = os.path.join(testdir, "empty.pdf")
+        outfile = os.path.join(tempdir, "empty.csv")
         runner = CliRunner()
 
         result = runner.invoke(

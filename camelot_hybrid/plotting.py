@@ -199,8 +199,14 @@ class PlotMethods():
             )
 
         plot_method = getattr(self, kind)
-        return plot_method(table, ax)
+        fig = plot_method(table)
 
+        if filename is not None:
+            fig.savefig(filename)
+            return None
+            
+        return fig
+        
     @staticmethod
     def text(table, ax=None):
         """Generates a plot for all text elements present

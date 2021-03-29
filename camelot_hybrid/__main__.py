@@ -5,7 +5,7 @@ __all__ = ("main",)
 
 
 def main():
-    from camelot.cli import cli
+    from camelot_hybrid.cli import cli
 
     cli()
 

@@ -5,7 +5,7 @@ import os
 import pytest
 import matplotlib
 
-import camelot
+import camelot_hybrid
 
 # The version of Matplotlib has an impact on some of the tests.  Unfortunately,
 # we can't enforce usage of a recent version of MatplotLib without dropping
@@ -33,14 +33,14 @@ def unit_test_stable_plot(table, kind):
     if not LEGACY_MATPLOTLIB:
         # See https://matplotlib.org/3.2.1/users/whats_new.html#kerning-adjustments-now-use-correct-values  # noqa
         matplotlib.rcParams["text.kerning_factor"] = 6
-    return camelot.plot(table, kind=kind)
+    return camelot_hybrid.plot(table, kind=kind)
 
 
 @pytest.mark.mpl_image_compare(
     baseline_dir="files/baseline_plots", remove_text=True, tolerance=TOLERANCE)
 def test_text_plot():
     filename = os.path.join(testdir, "foo.pdf")
-    tables = camelot.read_pdf(filename)
+    tables = camelot_hybrid.read_pdf(filename)
     return unit_test_stable_plot(tables[0], 'text')
 
 
@@ -48,7 +48,7 @@ def test_text_plot():
     baseline_dir="files/baseline_plots", remove_text=True, tolerance=TOLERANCE)
 def test_grid_plot():
     filename = os.path.join(testdir, "foo.pdf")
-    tables = camelot.read_pdf(filename)
+    tables = camelot_hybrid.read_pdf(filename)
     return unit_test_stable_plot(tables[0], 'grid')
 
 
@@ -56,7 +56,7 @@ def test_grid_plot():
     baseline_dir="files/baseline_plots", remove_text=True, tolerance=TOLERANCE)
 def test_stream_grid_plot():
     filename = os.path.join(testdir, "foo.pdf")
-    tables = camelot.read_pdf(filename, flavor="stream")
+    tables = camelot_hybrid.read_pdf(filename, flavor="stream")
     return unit_test_stable_plot(tables[0], 'grid')
 
 
@@ -64,7 +64,7 @@ def test_stream_grid_plot():
     baseline_dir="files/baseline_plots", remove_text=True, tolerance=TOLERANCE)
 def test_network_grid_plot():
     filename = os.path.join(testdir, "foo.pdf")
-    tables = camelot.read_pdf(filename, flavor="network")
+    tables = camelot_hybrid.read_pdf(filename, flavor="network")
     return unit_test_stable_plot(tables[0], 'grid')
 
 
@@ -72,7 +72,7 @@ def test_network_grid_plot():
     baseline_dir="files/baseline_plots", remove_text=True, tolerance=TOLERANCE)
 def test_lattice_contour_plot():
     filename = os.path.join(testdir, "foo.pdf")
-    tables = camelot.read_pdf(filename)
+    tables = camelot_hybrid.read_pdf(filename)
     return unit_test_stable_plot(tables[0], 'contour')
 
 
@@ -80,7 +80,7 @@ def test_lattice_contour_plot():
     baseline_dir="files/baseline_plots", remove_text=True, tolerance=TOLERANCE)
 def test_stream_contour_plot():
     filename = os.path.join(testdir, "tabula/12s0324.pdf")
-    tables = camelot.read_pdf(filename, flavor='stream')
+    tables = camelot_hybrid.read_pdf(filename, flavor='stream')
     return unit_test_stable_plot(tables[0], 'contour')
 
 
@@ -88,7 +88,7 @@ def test_stream_contour_plot():
     baseline_dir="files/baseline_plots", remove_text=True, tolerance=TOLERANCE)
 def test_network_contour_plot():
     filename = os.path.join(testdir, "tabula/12s0324.pdf")
-    tables = camelot.read_pdf(filename, flavor='network')
+    tables = camelot_hybrid.read_pdf(filename, flavor='network')
     return unit_test_stable_plot(tables[0], 'contour')
 
 
@@ -96,7 +96,7 @@ def test_network_contour_plot():
     baseline_dir="files/baseline_plots", remove_text=True, tolerance=TOLERANCE)
 def test_line_plot():
     filename = os.path.join(testdir, "foo.pdf")
-    tables = camelot.read_pdf(filename)
+    tables = camelot_hybrid.read_pdf(filename)
     return unit_test_stable_plot(tables[0], 'line')
 
 
@@ -104,7 +104,7 @@ def test_line_plot():
     baseline_dir="files/baseline_plots", remove_text=True, tolerance=TOLERANCE)
 def test_joint_plot():
     filename = os.path.join(testdir, "foo.pdf")
-    tables = camelot.read_pdf(filename)
+    tables = camelot_hybrid.read_pdf(filename)
     return unit_test_stable_plot(tables[0], 'joint')
 
 
@@ -112,7 +112,7 @@ def test_joint_plot():
     baseline_dir="files/baseline_plots", remove_text=True, tolerance=TOLERANCE)
 def test_stream_textedge_plot():
     filename = os.path.join(testdir, "tabula/12s0324.pdf")
-    tables = camelot.read_pdf(filename, flavor='stream')
+    tables = camelot_hybrid.read_pdf(filename, flavor='stream')
     return unit_test_stable_plot(tables[0], 'textedge')
 
 
@@ -120,7 +120,7 @@ def test_stream_textedge_plot():
     baseline_dir="files/baseline_plots", remove_text=True, tolerance=TOLERANCE)
 def test_network_textedge_plot():
     filename = os.path.join(testdir, "tabula/12s0324.pdf")
-    tables = camelot.read_pdf(filename, debug=True, flavor='network')
+    tables = camelot_hybrid.read_pdf(filename, debug=True, flavor='network')
     return unit_test_stable_plot(tables[0], 'textedge')
 
 
@@ -128,7 +128,7 @@ def test_network_textedge_plot():
     baseline_dir="files/baseline_plots", remove_text=True, tolerance=TOLERANCE)
 def test_network_table_regions_textedge_plot():
     filename = os.path.join(testdir, "tabula/us-007.pdf")
-    tables = camelot.read_pdf(
+    tables = camelot_hybrid.read_pdf(
         filename, debug=True, flavor="network",
         table_regions=["320,505,573,330"]
     )
@@ -139,7 +139,7 @@ def test_network_table_regions_textedge_plot():
     baseline_dir="files/baseline_plots", remove_text=True, tolerance=TOLERANCE)
 def test_network_table_areas_text_plot():
     filename = os.path.join(testdir, "tabula/us-007.pdf")
-    tables = camelot.read_pdf(
+    tables = camelot_hybrid.read_pdf(
         filename, debug=True, flavor="network",
         table_areas=["320,500,573,335"]
     )
