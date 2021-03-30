@@ -21,9 +21,9 @@ from .utils import (
 
 # minimum number of vertical textline intersections for a textedge
 # to be considered valid
-TEXTEDGE_REQUIRED_ELEMENTS = 4
+TEXTEDGE_REQUIRED_ELEMENTS = 3
 # padding added to table area on the left, right and bottom
-TABLE_AREA_PADDING = 10
+TABLE_AREA_PADDING = 50
 
 
 HORIZONTAL_ALIGNMENTS = ["left", "right", "middle"]
@@ -253,7 +253,7 @@ class TextEdges(TextAlignments):
             y0 = area[1] - TABLE_AREA_PADDING
             x1 = area[2] + TABLE_AREA_PADDING
             # add a constant since table headers can be relatively up
-            y1 = area[3] + average_row_height * 5
+            y1 = area[3] + average_row_height * 7
             return (x0, y0, x1, y1)
 
         # sort relevant textedges in reading order
